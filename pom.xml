@@ -3,11 +3,24 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.doctusoft</groupId>
     <artifactId>smart-factory</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
     </properties>
+    
+    <distributionManagement>
+        <repository>
+            <id>doctusoft.releases.public</id>
+            <url>http://pubrepo.doctusoft.com/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>doctusoft.snapshots.public</id>
+            <url>http://pubrepo.doctusoft.com/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
 </project>
