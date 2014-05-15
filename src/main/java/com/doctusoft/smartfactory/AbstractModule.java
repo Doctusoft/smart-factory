@@ -64,6 +64,23 @@ public abstract class AbstractModule {
 	public <T> void bindSingleton(Class<T> type, String name, Class<? extends T> toType) {
 		bind(type, name, toType, true);
 	}
+    
+    /**
+	 * Binds the given type to the given toType. The instantiation will be done by reflection. The given toType
+	 * must contain a parameterless public constructor. This bind is a named bind.
+	 * 
+	 * @param type
+	 *           The type which you want to bind.
+	 * @param name
+	 *           The name of the bind.
+	 * @param toType
+	 *           The type which you want to bind to the 'type'.
+     * @param <T>
+     *           The base type.
+	 */
+	public <T> void bindDynamic(Class<T> type, String name, Class<? extends T> toType) {
+		bind(type, name, toType, false);
+	}
 	
 	/**
 	 * Binds the given type to the given toType. The instantiation will be done by reflection. The given toType
@@ -133,6 +150,22 @@ public abstract class AbstractModule {
 	 */
 	public <T> void bindSingleton(Class<T> type, String name, Provider<? extends T> toProvider) {
 		bind(type, name, toProvider, true);
+	}
+    
+    /**
+	 * Binds the given type to the given provider. This bind will be named.
+	 * 
+     * @param type
+	 *           The type which you want to bind to the provider.
+	 * @param name
+	 *       The name of the bind.
+	 * @param toProvider
+	 *           The provider which will be executed to get the instance.
+     * @param <T>
+     *           The base type.
+	 */
+	public <T> void bindDynamic(Class<T> type, String name, Provider<? extends T> toProvider) {
+		bind(type, name, toProvider, false);
 	}
 	
 	/**
